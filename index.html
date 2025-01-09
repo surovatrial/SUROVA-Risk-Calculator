@@ -90,28 +90,24 @@
             text-align: center;
             font-size: 1.2em;
             padding: 10px;
-            border: 2px solid #004d61;
             border-radius: 10px;
-            background-color: #e0f2f1;
+            background-color: white; /* Default background color */
+            color: #333; /* Default text color */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .result span {
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .low {
-            background-color: #d4edda;
+        .result.low {
+            background-color: #d4edda; /* Green for Low Risk */
             color: #155724;
         }
 
-        .moderate {
-            background-color: #fff3cd;
+        .result.moderate {
+            background-color: #fff3cd; /* Yellow for Moderate Risk */
             color: #856404;
         }
 
-        .high {
-            background-color: #f8d7da;
+        .result.high {
+            background-color: #f8d7da; /* Red for High Risk */
             color: #721c24;
         }
 
@@ -223,26 +219,29 @@
             <button type="button" onclick="calculateRisk()">Calculate Risk</button>
         </form>
 
-        <div class="result">
+        <div class="result" id="result-container">
             <h2>Risk Probability: <span id="result">--</span></h2>
-            <h2>Risk Category: <span id="category" class="">--</span></h2>
+            <h2>Risk Category: <span id="category">--</span></h2>
         </div>
     </div>
 
     <script src="script.js"></script>
     <script>
         function updateRiskCategoryColor() {
+            const resultContainer = document.getElementById("result-container");
             const categoryElement = document.getElementById("category");
             const categoryText = categoryElement.textContent.toLowerCase();
 
-            categoryElement.className = ""; // Reset classes
+            // Reset all classes on the result container
+            resultContainer.className = "result";
 
+            // Apply the corresponding class based on the risk category
             if (categoryText === "low") {
-                categoryElement.classList.add("low");
+                resultContainer.classList.add("low");
             } else if (categoryText === "moderate") {
-                categoryElement.classList.add("moderate");
+                resultContainer.classList.add("moderate");
             } else if (categoryText === "high") {
-                categoryElement.classList.add("high");
+                resultContainer.classList.add("high");
             }
         }
 
@@ -252,6 +251,7 @@
     </script>
 </body>
 </html>
+
 
 
 
