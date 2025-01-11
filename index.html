@@ -139,15 +139,19 @@
 <body>
     <header class="header"></header>
 
-    <div class="authors">Authors: Luis M. Chiva and Pilar Ordás</div>
+    <div class="authors">
+        Authors: Luis M. Chiva and Pilar Ordás, on behalf of 
+        <a href="hospitals.pdf" target="_blank">Surova Study Group</a>
+    </div>
 
     <div class="info-link">
         <p>If you want more information about the SUROVA trial, you can visit our <a href="https://www.surovatrial.com/" target="_blank">website</a>.</p>
     </div>
 
     <div class="container" id="calculation-info">
-        <h2>SUROVA Risk Calculator for ovarian cancer (version 1)</h2>
-        <p>This tool helps estimate the risk of mortality in ovarian cancer patients based on clinical factors. The risk score calculation uses the beta coefficients of the dichotomized independent variables specified below, derived from a Logistic regression model built with the non-asian patients with high-grade ovarian cancer of the SUROVA dataset (N=2342). Enter the values below to calculate your patient's risk of death after treatment with a median follow-up of 43 months (range:0-80 months). 1100 patients had a follow-up of more than 55 months.</p>
+        <h2>SUROVA Risk Calculator for ovarian cancer v. 1.0. (Beta)</h2>
+        <p style="font-style: italic; text-align: center; margin-top: -10px;">Released January 2025</p>
+        <p>This tool helps estimate the <strong>risk of mortality in ovarian cancer patients</strong> based on clinical factors. The risk score calculation uses the beta coefficients of the dichotomized independent variables specified below, derived from a Logistic regression model built with the <strong>non-asian patients with high-grade ovarian cancer</strong> of the SUROVA dataset (N=2342, patients operated between January 1, 2018, and December 31, 2019). Enter the values below to calculate your patient's risk of death after treatment with a median follow-up of 43 months (range:0-80 months). 1100 patients had a follow-up of more than 55 months.</p>
     </div>
 
     <div class="container">
@@ -209,7 +213,7 @@
                 <option value="1">Any postoperative complications ≥ grade 3</option>
             </select>
 
-            <label for="parp">PARP inhibitors:</label>
+            <label for="parp">PARP inhibitors at any moment:</label>
             <select id="parp" name="parp" required>
                 <option value="">Select</option>
                 <option value="0">The patient didn't receive any maintenance treatment with PARP inhibitors</option>
@@ -220,7 +224,7 @@
         </form>
 
         <div class="result" id="result-container">
-            <h2>Risk Probability: <span id="result">--</span></h2>
+            <h2>Risk Mortality: <span id="result">--</span></h2>
             <h2>Risk Category: <span id="category">--</span></h2>
         </div>
     </div>
